@@ -13,7 +13,7 @@ public class MathUtil {
         if (binArr.length > 31) {return -1;}
         // check if all the chars in it are digit
         for (char ch : binArr) {
-            if (!Character.isDigit(ch)) {return -1;}
+            if (!Character.isDigit(ch) || ch - '0' > 1) {return -1;}
         }
         
         int res = 0;
