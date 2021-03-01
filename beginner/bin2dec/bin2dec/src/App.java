@@ -11,6 +11,6 @@ public class App {
         int res = MathUtil.bin2Dec(sc.next());
         sc.close();
         // 3. print the result
-        System.out.println(res);
+        System.out.println(res == -1 ? "Cannot convert it." : res);
     }
 }
