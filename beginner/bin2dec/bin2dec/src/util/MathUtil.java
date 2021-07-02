@@ -10,18 +10,18 @@ public class MathUtil {
         // sanity check
         char[] binArr = binStr.toCharArray();
         // do not accept the binary number whose length is larger than 31
+        // ** we must guarantee that the binary number is positive in integer type
         if (binArr.length > 31) {return -1;}
-        // check if all the chars in it are digit
-        for (char ch : binArr) {
-            if (!Character.isDigit(ch) || ch - '0' > 1) {return -1;}
-        }
-        
-        int res = 0;
+        // check if all the chars are digit and convert digit by digit 
+        int ans = 0;
         for (char d : binArr) {
-            res <<= 1;
-            res += Character.digit(d, 10);
+            if (!Character.isDigit(d) || d > '1') {
+                return -1;
+            }
+            ans <<= 1;
+            ans += d - '0';
         }
 
-        return res;
+        return ans;
     }
 }
